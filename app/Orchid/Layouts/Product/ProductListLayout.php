@@ -37,7 +37,7 @@ class ProductListLayout extends Table
             TD::make( "id", "ID" )
                 ->sort()
                 ->width( "70px" ),
-            TD::make( 'image', "Image" )
+            TD::make( 'image', "Фото" )
                 ->render( function ( Product $product ) {
                     return "<img
                                 src='$product->image'
@@ -45,23 +45,20 @@ class ProductListLayout extends Table
                                 style='width: 50px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover' />
                                 ";
                 } ),
-            TD::make( "category_id", "Category" )
-                ->render( fn( Product $product ) => $product->category->name )
+            TD::make( "category_id", "Категория" )
+                ->render( fn( Product $product ) => $product?->category?->name )
                 ->filter( Select::make()
                     ->fromModel( Category::class, "name", "id" ) ),
-            TD::make( "title", "Title" )
+            TD::make( "title", "Имя" )
                 ->sort()
                 ->filter( Input::make() ),
-            TD::make( "description", "Description" )
-                ->filter( Input::make() )
-                ->render( fn( Product $product ) => Str::limit( $product->description, 20 ) ),
-            TD::make( "count", "Count" )
+            TD::make( "count", "Кол-во" )
                 ->sort(),
-            TD::make( "weight", 'Weight' )
+            TD::make( "weight", 'Вес' )
                 ->sort(),
-            TD::make( "price", "Price" )
+            TD::make( "price", "Цена" )
                 ->sort(),
-            TD::make( "action", "Action" )
+            TD::make( "action", "Действия" )
                 ->width( "100px" )
                 ->alignRight()
                 ->render( function ( Product $product ) {
@@ -69,11 +66,11 @@ class ProductListLayout extends Table
                         DropDown::make()
                             ->icon( "options-vertical" )
                             ->list( [
-                                Button::make( "delete" )
+                                Button::make( "Удалить" )
                                     ->icon( "trash" )
                                     ->confirm( "confirm" )
                                     ->method( "handleRemove", [ $product->id ] ),
-                                Button::make( "edit" )
+                                Button::make( "Изменить" )
                                     ->icon( "pencil" )
                                     ->method( "handleOpenUpdate", [ $product->id ] ),
                             ] );

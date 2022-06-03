@@ -17,6 +17,8 @@ class CategoryScreen extends Screen
 {
     use CategoryHandler;
 
+
+
     /**
      * Query data.
      *
@@ -36,7 +38,7 @@ class CategoryScreen extends Screen
      */
     public function name (): ?string
     {
-        return 'Home page';
+        return 'Категории';
     }
 
     /**
@@ -46,7 +48,7 @@ class CategoryScreen extends Screen
      */
     public function description (): ?string
     {
-        return 'You are admin page.';
+        return 'Категории для товаров.';
     }
 
     /**
@@ -69,9 +71,9 @@ class CategoryScreen extends Screen
         return [
             Layout::modal( "change", [
                 Layout::rows( [
-                    Input::make( "name" )
-                        ->title( "Input new name" )
-                        ->placeholder( "..." ),
+                    Input::make( "Имя" )
+                        ->title( "Введите имя новой категории" )
+                        ->placeholder( "новое название" ),
                 ] ),
             ] ),
             Layout::columns( [

@@ -3,6 +3,7 @@
 declare( strict_types = 1 );
 
 use App\Orchid\Screens\CategoryScreen;
+use App\Orchid\Screens\OrderScreen;
 use App\Orchid\Screens\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -20,33 +21,66 @@ use Tabuna\Breadcrumbs\Trail;
 */
 
 // Main
-Route::screen( '/main', CategoryScreen::class )
+Route::screen( '/main', OrderScreen::class )
     ->name( 'platform.main' );
 
 Route::screen( "/category", CategoryScreen::class )
-    ->name( "platform.category" );
+    ->name( "platform.category" )
+    ->breadcrumbs( function ( Trail $trail ) {
+        return $trail
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Категории' ), route( 'platform.category' ) );
+    } );
 
 Route::screen( "/product", \App\Orchid\Screens\ProductScreen::class )
-    ->name( "platform.product" );
+    ->name( "platform.product" )
+    ->breadcrumbs( function ( Trail $trail ) {
+        return $trail
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Товары' ), route( 'platform.product' ) );
+    } );
 
 Route::screen( '/product/add', \App\Orchid\Screens\ProductAddScreen::class )
-    ->name( "platform.product.add" );
+    ->name( "platform.product.add" )
+    ->breadcrumbs( function ( Trail $trail ) {
+        return $trail
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Товары' ), route( 'platform.product' ) )
+            ->push( __( 'Добавление' ), route( 'platform.product.add' ) );
+    } );
 
 Route::screen( "/product/{product}", \App\Orchid\Screens\ProductAddScreen::class )
-    ->name( "platform.product.update" );
+    ->name( "platform.product.update" )
+    ->breadcrumbs( function ( Trail $trail ) {
+        return $trail
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Товары' ), route( 'platform.product' ) )
+            ->push( __( 'Изменение' ), );
+    } );
 
-Route::screen( "/order", \App\Orchid\Screens\OrderScreen::class )
-    ->name( "platform.order" );
+Route::screen( "/order", OrderScreen::class )
+    ->name( "platform.order" )
+    ->breadcrumbs( function ( Trail $trail ) {
+        return $trail
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Заказы' ), route( 'platform.order' ) );
+    } );
 
 Route::screen( '/order/{order}', \App\Orchid\Screens\OrderMoreScreen::class )
-    ->name( "platform.order.more" );
+    ->name( "platform.order.more" )
+    ->breadcrumbs( function ( Trail $trail ) {
+        return $trail
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Заказы' ), route( 'platform.order' ) )
+            ->push( __( 'Подробнее' ),);
+    } );
 
 // Platform > Profile
 Route::screen( 'profile', UserProfileScreen::class )
     ->name( 'platform.profile' )
     ->breadcrumbs( function ( Trail $trail ) {
         return $trail
-            ->parent( 'platform.index' )
-            ->push( __( 'Profile' ), route( 'platform.profile' ) );
+            ->push( __( "Домашняя страница" ), route( 'platform.main' ) )
+            ->push( __( 'Профиль' ), route( 'platform.profile' ) );
     } );
 

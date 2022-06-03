@@ -1,0 +1,114 @@
+.header {
+    @apply
+    flex
+    justify-center
+    bg-emerald-500
+    text-white
+    p-2
+    drop-shadow-md
+    sm:p-3;
+
+    &__container {
+        @apply
+        flex
+        justify-between
+        items-center
+
+        w-full;
+    }
+
+    &__brand {
+        @apply
+        flex
+        items-center
+        gap-2
+        ;
+    }
+
+    &__icon {
+        @apply
+        aspect-square
+        w-10
+        sm:w-12
+        ;
+    }
+
+    &__title {
+        @apply
+        pb-1
+        border-b-2
+        border-b-white
+        font-bold
+        text-2xl
+        sm:text-3xl;
+    }
+
+    &__cart {
+        @apply
+        relative
+        sm:text-2xl
+        text-xl
+        no-underline
+        pt-0.5
+        pb-1
+        px-3
+        border-2
+        border-white
+        rounded-3xl
+        cursor-pointer;
+        transition: background-color .3s ease;
+
+
+        &::after {
+            content: "";
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .3s ease;
+            @apply
+            absolute
+            block
+            aspect-square
+            opacity-20
+            rounded-full
+            bg-white
+            w-0
+            h-0
+            ;
+        }
+
+        &:active {
+            @apply
+            bg-emerald-600;
+        }
+
+        &:hover::after {
+            width: 100%;
+            height: 100%;
+        }
+
+        span {
+            @apply
+            absolute
+            block
+            border-2
+            border-white
+            flex
+            overflow-hidden
+            w-7
+            justify-center
+            items-center
+            aspect-square
+            text-base
+            -top-2.5
+            -right-2
+            p-1
+            rounded-full
+            bg-orange-300
+            text-white
+            transition-all
+            z-10
+            ;
+        }
+    }
+}

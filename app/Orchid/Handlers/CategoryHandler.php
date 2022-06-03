@@ -14,13 +14,13 @@ trait CategoryHandler
             "name" => "required",
         ] );
         Category::create( [ "name" => $request->name ] );
-        alert( "Successful save" );
+        alert( "Успешно сохранено" );
     }
 
     public function handleRemove ( int $id )
     {
         Category::destroy( [ $id ] );
-        alert( "Successful delete" );
+        alert( "Успешно удалено" );
     }
 
     public function handleUpdate ( Request $request, int $id )
@@ -29,7 +29,7 @@ trait CategoryHandler
             "name" => "required",
         ] );
         Category::query()->find( $id )->update( [ "name" => $request->name ] );
-        alert( "Successful update" );
+        alert( "Успешно обновлено" );
     }
 
 }

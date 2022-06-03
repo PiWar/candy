@@ -26,13 +26,13 @@ class ProductPropertyLayout extends Rows
         return [
             Input::make( "product.count" )
                 ->type( "number" )
-                ->title( "Product count" ),
+                ->title( "Кол-во товара" ),
             Input::make( "product.weight" )
                 ->type( "text" )
-                ->title( "Product weight" )
+                ->title( "Вес товара" )
                 ->placeholder( "100 г" ),
             Input::make( "product.price" )
-                ->title("Price")
+                ->title("Цена")
                 ->type( "currency" ),
         ];
     }

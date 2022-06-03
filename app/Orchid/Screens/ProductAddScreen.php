@@ -44,7 +44,7 @@ class ProductAddScreen extends Screen
      */
     public function name (): ?string
     {
-        return 'ProductAddScreen';
+        return 'Добавление товара';
     }
 
     /**
@@ -55,10 +55,10 @@ class ProductAddScreen extends Screen
     public function commandBar (): iterable
     {
         return [
-            Button::make( "save" )
+            Button::make( "Сохранить" )
                 ->type( Color::SUCCESS() )
                 ->method( !$this?->product?->exists ? "handleSave" : "handleUpdate" ),
-            Button::make( "remove" )
+            Button::make( "Удалить" )
                 ->type( Color::DANGER() )
                 ->method( "handleRemove", [ $this->product->id, true ] )
                 ->canSee( $this->product->exists ),
@@ -75,14 +75,14 @@ class ProductAddScreen extends Screen
     {
         return [
             Layout::block( ProductMainInfoLayout::class )
-                ->title( "Main info" )
-                ->description( "Fill main info about product" ),
+                ->title( "Основная информация" )
+                ->description( "Заполните основную информацию о товаре." ),
             Layout::block( ProductPhotoLayout::class )
-                ->title( "Photo" )
-                ->description( "Load photo for product" ),
+                ->title( "Фотогорафия" )
+                ->description( "Загрузите фотографию товара." ),
             Layout::block( ProductPropertyLayout::class )
-                ->title( "Property" )
-                ->description( "Property product" ),
+                ->title( "Характеристика" )
+                ->description( "Заполните характеристики товара" ),
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Orchid\Handlers;
 
 use App\Models\Order;
+use Illuminate\Http\RedirectResponse;
 
 trait OrderHandler
 {
@@ -17,7 +18,7 @@ trait OrderHandler
         Order::query()->find( $id )->delete();
     }
 
-    public function handleShow ( int $id )
+    public function handleShow ( int $id ): RedirectResponse
     {
         return redirect()->route("platform.order.more", ["order" => $id]);
     }

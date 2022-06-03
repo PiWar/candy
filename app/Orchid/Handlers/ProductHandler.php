@@ -13,7 +13,6 @@ trait ProductHandler
     {
         $rules = [
             "product.title" => "",
-            "product.description" => "",
             "product.category_id" => "",
             "product.weight" => "",
             "product.price" => "",
@@ -28,7 +27,7 @@ trait ProductHandler
     public function handleRemove ( int $id, bool|null $withRedirect )
     {
         Product::query()->find( $id )->delete();
-        Alert::success( "product delete" );
+        Alert::success( "Товар удален" );
 
         if ( $withRedirect ) return redirect()->route( "platform.product" );
     }
@@ -42,7 +41,7 @@ trait ProductHandler
 
         Product::create( $data );
 
-        Alert::success( "Product created" );
+        Alert::success( "Товар создан" );
 
         return redirect()->route( "platform.product" );
     }
@@ -56,7 +55,7 @@ trait ProductHandler
         }
 
         Product::query()->find( $id )->update( $data );
-        \alert( "successful update" );
+        \alert( "Успешно обновлено" );
     }
 
     public function handleOpenUpdate ( int $id )

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "header";
+@import "footer";
+@import "welcome_content";
+@import "card_content";
+
+
+* {
+    @apply
+    font-nunito
+    ;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: min-content auto min-content;
+}
+
+#scrollbar-custom {
+    scroll-behavior: smooth;
+}

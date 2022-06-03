@@ -35,16 +35,16 @@ class OrderListLayout extends Table
             TD::make( "id", "ID" )
                 ->width( "70px" )
                 ->sort(),
-            TD::make( "user_name", "User name" )
+            TD::make( "user_name", "Имя заказчика" )
                 ->filter( Input::make() ),
-            TD::make( "user_phone", "User phone" )
+            TD::make( "user_phone", "Телефон заказчика" )
                 ->filter( Input::make() ),
-            TD::make( "user_email", "User email" )
+            TD::make( "user_email", "Почта заказчика" )
                 ->filter( Input::make() ),
-            TD::make( "total_price", "Total price" )
+            TD::make( "total_price", "Итоговая стоимость" )
                 ->sort()
                 ->render( fn( Order $order ) => "$order->total_price p." ),
-            TD::make( "status", "Status" )
+            TD::make( "status", "Статус" )
                 ->sort()
                 ->width( 150 )
                 ->alignCenter()
@@ -59,7 +59,7 @@ class OrderListLayout extends Table
                     $order->status == 1 => "<span style='color: white; border-radius: .5rem; padding: 2px 8px; background: #cc9600; display: block;'>В обработке</span>",
                     $order->status == 2 => "<span style='color: white; border-radius: .5rem; padding: 2px 8px; background: #18cc00; display: block;'>Выполнен</span>",
                 } ),
-            TD::make( "action", "Action" )
+            TD::make( "action", "Действия" )
                 ->width( "100px" )
                 ->alignRight()
                 ->render( function ( Order $order ) {
@@ -75,10 +75,10 @@ class OrderListLayout extends Table
                                     ->method( "handleStatus", [ $order->id, 2 ] ),
                                 Button::make( "Подробнее" )
                                     ->icon( "list" )
-                                ->method("handleShow", [$order->id]),
-                                Button::make( "Удалить" )
-                                    ->icon( "trash" )
-                                    ->method( "handleRemove" [ $order->id ] ),
+                                    ->method( "handleShow", [ $order->id ] ),
+                                Button::make( 'Удалить' )
+                                    ->icon("trash")
+                                    ->method( 'handleRemove', [ $order->id ] ),
                             ] );
 
                 } ),

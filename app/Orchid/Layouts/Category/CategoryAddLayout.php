@@ -16,7 +16,7 @@ class CategoryAddLayout extends Rows
      *
      * @var string|null
      */
-    protected $title = "Add new category";
+    protected $title = "Добавление новой категории";
 
     /**
      * Get the fields elements to be displayed.
@@ -27,7 +27,7 @@ class CategoryAddLayout extends Rows
     {
         return [
             Input::make( "name" )
-                ->title( "Name" ),
+                ->title( "Имя" ),
             Button::make( "Сохранить" )
                 ->type( Color::SUCCESS() )
                 ->method( "handleSave" ),

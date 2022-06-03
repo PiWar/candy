@@ -32,7 +32,7 @@ class ProductScreen extends Screen
      */
     public function name (): ?string
     {
-        return 'ProductScreen';
+        return 'Товары';
     }
 
     /**
@@ -43,7 +43,7 @@ class ProductScreen extends Screen
     public function commandBar (): iterable
     {
         return [
-            Link::make( 'add' )
+            Link::make( 'Добавить' )
                 ->icon( "plus" )
                 ->route( "platform.product.add" ),
         ];

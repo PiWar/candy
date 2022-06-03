@@ -14,7 +14,7 @@ use Orchid\Support\Color;
 class CategoryListLayout extends Table
 {
 
-    protected $title = "List categories";
+    protected $title = "Все категории";
     /**
      * Data source.
      *
@@ -37,10 +37,10 @@ class CategoryListLayout extends Table
                 ->sort()
                 ->filter( Input::make()->type( "number" ) )
                 ->width( "120px" ),
-            TD::make( "name", "Name" )
+            TD::make( "name", "Имя" )
                 ->sort()
                 ->filter( Input::make() ),
-            TD::make( "action", "Action" )
+            TD::make( "action", "Действия" )
                 ->width( "100px" )
                 ->alignRight()
                 ->render( function ( Category $category ) {
@@ -48,11 +48,11 @@ class CategoryListLayout extends Table
                         DropDown::make()
                             ->icon( "options-vertical" )
                             ->list( [
-                                Button::make( "delete" )
+                                Button::make( "Удалить" )
                                     ->icon( "trash" )
                                     ->confirm( "confirm" )
                                     ->method( "handleRemove", [ $category->id ] ),
-                                ModalToggle::make( "edit" )
+                                ModalToggle::make( "Изменить" )
                                     ->icon( "pencil" )
                                     ->modal( "change" )
                                     ->method( "handleUpdate", [ $category->id ] ),

@@ -30,16 +30,12 @@ class ProductMainInfoLayout extends Rows
             Input::make( "product.title" )
                 ->type( "text" )
                 ->max( 255 )
-                ->title( "Title" )
-                ->placeholder( "title" ),
-            TextArea::make( "product.description" )
-                ->rows( 5 )
-                ->title( "Description" )
-                ->placeholder( "description" ),
+                ->title( "Название" )
+                ->placeholder( "название" ),
             Select::make( "product.category_id" )
                 ->fromModel( Category::class, "name" )
                 ->value($this?->product?->category_id ?? null)
-                ->title( "Category" ),
+                ->title( "Категория" ),
         ];
     }
 

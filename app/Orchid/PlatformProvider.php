@@ -29,13 +29,16 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu (): array
     {
         return [
-            Menu::make( 'Category' )
+            Menu::make( 'Категории' )
                 ->icon( 'grid' )
                 ->route( 'platform.category' )
                 ->title( 'Menu' ),
-            Menu::make( "Product" )
-                ->icon()
+            Menu::make( "Товары" )
+                ->icon("bag")
                 ->route( "platform.product" ),
+            Menu::make( "Заказы" )
+                ->icon("basket-loaded")
+                ->route( "platform.order" ),
         ];
     }
 
@@ -45,7 +48,7 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerProfileMenu (): array
     {
         return [
-            Menu::make( 'Profile' )
+            Menu::make( 'Профиль' )
                 ->route( 'platform.profile' )
                 ->icon( 'user' ),
         ];

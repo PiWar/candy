@@ -14,7 +14,6 @@ class Product extends Model
 
     protected $fillable = [
         "title",
-        "description",
         "image",
         "category_id",
         "count",
@@ -36,7 +35,6 @@ class Product extends Model
     ];
     protected $allowedFilters = [
         "title",
-        "description",
         "category_id",
     ];
 

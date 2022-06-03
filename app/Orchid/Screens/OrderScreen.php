@@ -31,7 +31,7 @@ class OrderScreen extends Screen
      */
     public function name (): ?string
     {
-        return 'OrderScreen';
+        return 'Заказы';
     }
 
     /**

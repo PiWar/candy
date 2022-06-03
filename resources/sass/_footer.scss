@@ -1,0 +1,76 @@
+.footer {
+    @apply
+    flex justify-center
+    bg-[#696752] text-white
+    p-2 sm:p-3;
+
+    &__container {
+        @apply
+        flex
+        justify-between
+        items-center
+        max-w-7xl
+        w-full;
+    }
+
+    &__copyright {
+        @apply
+        flex
+        flex-col
+        text-xl
+        sm:text-2xl
+        sm:block
+        ;
+    }
+
+    &__hide {
+        @apply
+        hidden
+        sm:inline
+        ;
+    }
+
+    &__social {
+        @apply grid grid-cols-5 gap-2;
+
+        &-body {
+            @apply
+            cursor-pointer
+            block
+            w-10
+            sm:w-11
+            p-2
+            rounded-full
+            bg-white
+            border-2
+            border-stone-400
+            ;
+
+            img {
+                transition: transform .3s ease;
+            }
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    .footer {
+        &__social {
+            @apply
+            grid-cols-3
+            gap-1
+            ;
+
+            &-body {
+                @apply
+                w-9
+                ;
+            }
+        }
+    }
+}

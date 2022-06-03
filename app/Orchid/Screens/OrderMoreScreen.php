@@ -4,6 +4,7 @@ namespace App\Orchid\Screens;
 
 use App\Models\Order;
 use App\Models\Product;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Legend;
 use Orchid\Screen\Screen;
 use Orchid\Screen\Sight;
@@ -29,10 +30,9 @@ class OrderMoreScreen extends Screen
     public function getProduct ( Product $product, int $count )
     {
         return "<div style='display: flex; align-items: center; gap: 10px'>
-            <span><img src='$product->image' style='width: 60px; border-radius: 50%; aspect-ratio: 1/1; object-fit: cover'></span>
-            <span><b>id:</b> $product->id</span>
-            <span><b>title:</b> $product->title</span>
-            <span><b>count:</b> $count</span>
+            <span><img src='$product->image' style='width: 60px; border-radius: 50%; aspect-ratio: 1/1; object-fit: contain'></span>
+            <span><b>Название:</b> $product->title</span>
+            <span><b>Количество:</b> $count</span>
         </div>";
     }
 
@@ -56,7 +56,7 @@ class OrderMoreScreen extends Screen
      */
     public function name (): ?string
     {
-        return 'OrderMoreScreen';
+        return 'Заказ';
     }
 
     /**
@@ -66,7 +66,10 @@ class OrderMoreScreen extends Screen
      */
     public function commandBar (): iterable
     {
-        return [];
+        return [
+            Link::make('Назад')
+            ->route('platform.order')
+        ];
     }
 
     /**
@@ -78,14 +81,13 @@ class OrderMoreScreen extends Screen
     {
         return [
             Layout::legend( "order", [
-                Sight::make( "id", "ID" ),
-                Sight::make( "user_name", "User name" ),
-                Sight::make( "user_phone", "User phone" ),
-                Sight::make( "user_email", "User email" ),
-                Sight::make( "total_price", "Total price" )
+                Sight::make( "user_name", "Имя заказчика" ),
+                Sight::make( "user_phone", "Телефон заказчика" ),
+                Sight::make( "user_email", "Почта заказчика" ),
+                Sight::make( "total_price", "Итоговая стоимость" )
                     ->render( fn( Order $order ) => "$order->total_price p." ),
-                Sight::make( "slug", "Unique id" ),
-                Sight::make( "products", "Products" )
+                Sight::make( "slug", "Номер заказа" ),
+                Sight::make( "Товары", "Products" )
                     ->render( fn( Order $order ) => $this->getProducts() ),
             ] ),
         ];
