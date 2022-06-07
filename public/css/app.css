@@ -1134,6 +1134,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
+.card__item .price {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.card__item .price span {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
 .card__form {
   display: flex;
   width: 100%;
@@ -1191,10 +1207,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.card__control {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__total-price {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
 .card__submit {
   position: relative;
-  margin-top: 1rem;
-  margin-left: auto;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;

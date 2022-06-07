@@ -7,7 +7,8 @@ const getAllBtn = () => {
 
 const handleClick = e => {
     const id  = e.target.dataset.product
-    store.addItem(Number.parseInt(id))
+    const price = e.target.dataset.price
+    store.addItem(Number.parseInt(id), Number.parseInt(price))
 }
 
 const init = () => {

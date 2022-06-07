@@ -11,7 +11,6 @@ const CardItem = observer(({id, name, img}) => {
         setItem(store.getItem(id.toString()))
     }, [])
 
-
     const minus = () => setItem(store.removeItem(id))
     const plus = () => setItem(store.addItem(id))
 
@@ -31,7 +30,7 @@ const CardItem = observer(({id, name, img}) => {
                     <span className="count">{item?.count}</span>
                     <span className="action plus" onClick={plus}>+</span>
                 </div>
-
+                <div className='price'><span>{item?.price} p.</span></div>
             </div>
         </div>
     );

@@ -2478,7 +2478,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api */ "./resources/js/api/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var mobx_react_lite__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! mobx-react-lite */ "./node_modules/mobx-react-lite/es/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2496,6 +2497,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -2574,13 +2576,13 @@ var CardForm = function CardForm() {
       touched = _useFormik.touched,
       resetForm = _useFormik.resetForm;
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
     onSubmit: handleSubmit,
     className: "card__form",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
       className: "card__form-title",
       children: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_FormInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_FormInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
       title: "Name",
       name: "name",
       value: values.name,
@@ -2588,7 +2590,7 @@ var CardForm = function CardForm() {
       placeholder: "name",
       touched: touched.name,
       error: errors.name
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_FormInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_FormInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
       title: "Email",
       name: "email",
       value: values.email,
@@ -2596,7 +2598,7 @@ var CardForm = function CardForm() {
       placeholder: "email",
       touched: touched.email,
       error: errors.email
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_FormInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_FormInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
       title: "Phone",
       name: "phone",
       value: values.phone,
@@ -2604,15 +2606,21 @@ var CardForm = function CardForm() {
       placeholder: "phone",
       touched: touched.phone,
       error: errors.phone
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-      type: "submit",
-      value: "\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C",
-      className: "card__submit"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "card__control",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "card__total-price",
+        children: [_store__WEBPACK_IMPORTED_MODULE_5__.store.totalPrice, " p."]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+        type: "submit",
+        value: "\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C",
+        className: "card__submit"
+      })]
     })]
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardForm);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,mobx_react_lite__WEBPACK_IMPORTED_MODULE_7__.observer)(CardForm));
 
 /***/ }),
 
@@ -2698,6 +2706,11 @@ var CardItem = (0,mobx_react_lite__WEBPACK_IMPORTED_MODULE_0__.observer)(functio
           onClick: plus,
           children: "+"
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "price",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+          children: [item === null || item === void 0 ? void 0 : item.price, " p."]
+        })
       })]
     })]
   });
@@ -2926,7 +2939,8 @@ var getAllBtn = function getAllBtn() {
 
 var handleClick = function handleClick(e) {
   var id = e.target.dataset.product;
-  _store__WEBPACK_IMPORTED_MODULE_0__.store.addItem(Number.parseInt(id));
+  var price = e.target.dataset.price;
+  _store__WEBPACK_IMPORTED_MODULE_0__.store.addItem(Number.parseInt(id), Number.parseInt(price));
 };
 
 var init = function init() {
@@ -2974,6 +2988,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -2998,10 +3016,10 @@ var findItem = function findItem(id) {
 
 var increaseCountItem = function increaseCountItem(id) {
   return function (item) {
-    if (item.id === id) return {
-      id: item.id,
-      count: item.count + 1
-    };
+    if (item.id === id) return _objectSpread(_objectSpread({}, item), {}, {
+      count: item.count + 1,
+      price: item.price + item.price / item.count
+    });
     return item;
   };
 };
@@ -3012,7 +3030,8 @@ var decrease = function decrease(id) {
       if (item.count === 1) return null;
       return {
         id: item.id,
-        count: item.count - 1
+        count: item.count - 1,
+        price: item.price - item.price / item.count
       };
     }
 
@@ -3030,6 +3049,7 @@ var Store = /*#__PURE__*/function () {
       getAll: mobx__WEBPACK_IMPORTED_MODULE_1__.computed,
       countInCard: mobx__WEBPACK_IMPORTED_MODULE_1__.computed,
       ids: mobx__WEBPACK_IMPORTED_MODULE_1__.computed,
+      totalPrice: mobx__WEBPACK_IMPORTED_MODULE_1__.computed,
       _count: mobx__WEBPACK_IMPORTED_MODULE_1__.observable,
       addItem: mobx__WEBPACK_IMPORTED_MODULE_1__.action,
       removeItem: mobx__WEBPACK_IMPORTED_MODULE_1__.action,
@@ -3051,17 +3071,29 @@ var Store = /*#__PURE__*/function () {
       return this._count;
     }
   }, {
+    key: "totalPrice",
+    get: function get() {
+      var _ = this._count;
+
+      var totalPrice = _get().reduce(function (prev, curr) {
+        return prev += curr.price;
+      }, 0);
+
+      return totalPrice;
+    }
+  }, {
     key: "getItem",
     value: function getItem(id) {
       return _get().find(findItem(id));
     }
   }, {
     key: "addItem",
-    value: function addItem(id) {
+    value: function addItem(id, price) {
       if (!this._hasItem(id)) {
         push({
           id: id,
-          count: 1
+          count: 1,
+          price: price
         });
       } else {
         set(_get().map(increaseCountItem(id)));

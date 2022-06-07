@@ -39,6 +39,7 @@
                         <p
                             class="item-btn"
                             data-text="Выбрать"
+                            data-price="{{$product->price}}"
                             data-product="{{$product->id}}"
                         >
                             В корзину

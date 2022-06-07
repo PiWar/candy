@@ -4,6 +4,7 @@ import FormInput from "./FormInput";
 import {createOrder} from "../api";
 import {store} from "../store";
 import {useState} from "react";
+import {observer} from "mobx-react-lite";
 
 const CardForm = () => {
     const [title, setTitle] = useState("Оформить заказ")
@@ -43,10 +44,13 @@ const CardForm = () => {
                        placeholder={"email"} touched={touched.email} error={errors.email}/>
             <FormInput title={"Phone"} name={"phone"} value={values.phone} handleChange={handleChange}
                        placeholder={"phone"} touched={touched.phone} error={errors.phone}/>
-            <input type="submit" value="Заказать" className="card__submit"/>
+            <div className="card__control">
+                <div className="card__total-price">{store.totalPrice} p.</div>
+                <input type="submit" value="Заказать" className="card__submit"/>
+            </div>
         </form>
     );
 };
 
 
-export default CardForm;
+export default observer(CardForm);
