@@ -9,6 +9,12 @@ use Orchid\Support\Facades\Alert;
 trait ProductHandler
 {
 
+    private array $message = [
+        'required' => 'Обязательное поле',
+        'file' => "Необходимо загрузить файл",
+        "mimes" => "Поддерживаемые расширения файлов: jpeg, png, jpg, webp",
+    ];
+
     private function getValidationRules ( bool $isRequired = true )
     {
         $rules = [
@@ -17,7 +23,7 @@ trait ProductHandler
             "product.weight" => "",
             "product.price" => "",
             "product.count" => "",
-            "product.image" => "|file|mimes:jpg,png,jpeg",
+            "product.image" => "|file|mimes:jpg,png,jpeg,webp",
         ];
 
         return array_map( fn( $val ) => $isRequired ? "required" . $val : "nullable" . $val, $rules );
@@ -34,7 +40,7 @@ trait ProductHandler
 
     public function handleSave ( Request $request )
     {
-        $data = $request->validate( $this->getValidationRules() )[ "product" ];
+        $data = $request->validate( $this->getValidationRules(), $this->message )[ "product" ];
 
 
         $data[ "image" ] = "/storage/" . $data[ "image" ]->store( "", 'public' );
@@ -48,7 +54,7 @@ trait ProductHandler
 
     public function handleUpdate ( Request $request, int $id )
     {
-        $data = $request->validate( $this->getValidationRules( false ) )[ "product" ];
+        $data = $request->validate( $this->getValidationRules( false ), $this->message )[ "product" ];
 
         if ( array_key_exists( "image", $data ) ) {
             $data[ "image" ] = "/storage/" . $data[ "image" ]->store( "", 'public' );

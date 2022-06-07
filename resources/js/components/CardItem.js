@@ -15,7 +15,6 @@ const CardItem = observer(({id, name, img}) => {
     const minus = () => setItem(store.removeItem(id))
     const plus = () => setItem(store.addItem(id))
 
-    console.log(item)
 
     if (isUndefined(item)) return null
 

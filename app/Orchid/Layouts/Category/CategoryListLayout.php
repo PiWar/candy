@@ -50,7 +50,7 @@ class CategoryListLayout extends Table
                             ->list( [
                                 Button::make( "Удалить" )
                                     ->icon( "trash" )
-                                    ->confirm( "confirm" )
+                                    ->confirm( "Подтвердите дейсвтие" )
                                     ->method( "handleRemove", [ $category->id ] ),
                                 ModalToggle::make( "Изменить" )
                                     ->icon( "pencil" )

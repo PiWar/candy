@@ -5,7 +5,6 @@ import CardForm from "./CardForm";
 
 const Card = () => {
     const items = useGetItems()
-    console.log(items);
 
     return (
         <div className="card__container">

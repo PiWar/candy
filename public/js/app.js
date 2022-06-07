@@ -2440,7 +2440,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var Card = function Card() {
   var items = (0,_hooks_useGetItems__WEBPACK_IMPORTED_MODULE_0__.useGetItems)();
-  console.log(items);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "card__container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2674,7 +2673,6 @@ var CardItem = (0,mobx_react_lite__WEBPACK_IMPORTED_MODULE_0__.observer)(functio
     return setItem(_store__WEBPACK_IMPORTED_MODULE_1__.store.addItem(id));
   };
 
-  console.log(item);
   if ((0,lodash__WEBPACK_IMPORTED_MODULE_3__.isUndefined)(item)) return null;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "card__item",
