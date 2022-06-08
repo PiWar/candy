@@ -28,7 +28,7 @@
     &__icon {
         @apply
         aspect-square
-        w-10
+        w-8
         sm:w-12
         ;
     }
@@ -36,28 +36,26 @@
     &__title {
         @apply
         pb-1
-        border-b-2
-        border-b-white
         font-bold
-        text-2xl
-        sm:text-3xl;
+        text-xl
+        sm:text-2xl;
     }
 
     &__cart {
         @apply
         relative
         sm:text-2xl
-        text-xl
         no-underline
-        pt-0.5
-        pb-1
-        px-3
+        sm:pt-0.5
+        sm:pb-1
+        sm:px-3
+        px-2
+        pb-0.5
         border-2
         border-white
         rounded-3xl
         cursor-pointer;
         transition: background-color .3s ease;
-
 
         &::after {
             content: "";
@@ -95,17 +93,21 @@
             border-white
             flex
             overflow-hidden
-            w-7
+            sm:w-7
+            w-5
             justify-center
             items-center
             aspect-square
             text-base
             -top-2.5
             -right-2
-            p-1
+            sm:p-1
+            p-0.5
             rounded-full
             bg-orange-300
             text-white
+                text-xs
+                sm:text-base
             transition-all
             z-10
             ;

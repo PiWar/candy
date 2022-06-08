@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\RepositoryTrait\ProductRepositoryTrait;
 use Illuminate\Http\Request;
@@ -32,7 +33,22 @@ class PageController extends Controller
 
     public function card ()
     {
-        return view("card");
+        return view( "card" );
+    }
+
+    public function orders ()
+    {
+        $user = session()->get( "_user" );
+        $orders = Order::query()
+            ->where( "user_name", "=", $user[ "name" ] )
+            ->where( "user_phone", "=", $user[ "phone" ] )
+            ->get();
+        return view( "orders", compact("orders", 'user') );
+    }
+
+    public function loginOrders ()
+    {
+        return view( "loginOrders" );
     }
 
 }

@@ -3,12 +3,12 @@ import * as yup from "yup"
 import FormInput from "./FormInput";
 import {createOrder} from "../api";
 import {store} from "../store";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {observer} from "mobx-react-lite";
 
 const CardForm = () => {
     const [title, setTitle] = useState("Оформить заказ")
-    const {handleSubmit, handleChange, values, errors, touched, resetForm} = useFormik({
+    const {handleSubmit, handleChange, values, errors, touched, resetForm, setFieldValue} = useFormik({
         initialValues: {
             phone: "",
             email: "",
@@ -34,6 +34,13 @@ const CardForm = () => {
         }
     })
 
+    useEffect(() => {
+        const card = document.getElementById("card")
+        if (card?.dataset?.phone && card?.dataset?.name) {
+            setFieldValue("phone", card.dataset.phone)
+            setFieldValue("name", card.dataset.name)
+        }
+    }, [])
 
     return (
         <form onSubmit={handleSubmit} className="card__form">
