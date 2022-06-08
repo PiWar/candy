@@ -26,3 +26,19 @@ body {
 #scrollbar-custom {
     scroll-behavior: smooth;
 }
+
+div#vanilla-toast-container {
+    @apply
+    flex
+    items-end
+}
+
+div#vanilla-toast {
+    @apply
+    px-4
+    py-2
+    rounded-md
+    bg-emerald-500
+    mb-3
+    ml-3
+}

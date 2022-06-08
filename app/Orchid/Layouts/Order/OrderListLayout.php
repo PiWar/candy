@@ -35,11 +35,13 @@ class OrderListLayout extends Table
             TD::make( "id", "ID" )
                 ->width( "70px" )
                 ->sort(),
-            TD::make( "user_name", "Имя заказчика" )
+            TD::make( "slug", "Номер заказа" )
                 ->filter( Input::make() ),
-            TD::make( "user_phone", "Телефон заказчика" )
+            TD::make( "user_name", "Имя" )
                 ->filter( Input::make() ),
-            TD::make( "user_email", "Почта заказчика" )
+            TD::make( "user_phone", "Телефон" )
+                ->filter( Input::make() ),
+            TD::make( "user_email", "Почта" )
                 ->filter( Input::make() ),
             TD::make( "total_price", "Итоговая стоимость" )
                 ->sort()
@@ -77,7 +79,7 @@ class OrderListLayout extends Table
                                     ->icon( "list" )
                                     ->method( "handleShow", [ $order->id ] ),
                                 Button::make( 'Удалить' )
-                                    ->icon("trash")
+                                    ->icon( "trash" )
                                     ->method( 'handleRemove', [ $order->id ] ),
                             ] );
 

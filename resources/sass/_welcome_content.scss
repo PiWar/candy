@@ -164,14 +164,15 @@
             img {
                 @apply
                 relative
+                p-2
                 w-full
                 rounded
                 rounded-t-3xl
                 rounded-b-xl
                 object-contain
                 object-center
-                    bg-white
-                    rounded-md
+                bg-white
+                rounded-md
                 aspect-square;
 
             }
