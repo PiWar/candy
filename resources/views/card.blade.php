@@ -9,6 +9,7 @@
              @if(session()->get("_user"))
              data-name="{{session()->get("_user")["name"]}}"
              data-phone="{{session()->get("_user")["phone"]}}"
+             data-email="{{session()->get("_user")["email"]}}"
             @endif></div>
 
     </main>

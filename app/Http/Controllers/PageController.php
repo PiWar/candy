@@ -50,5 +50,9 @@ class PageController extends Controller
     {
         return view( "loginOrders" );
     }
+    public function registerOrders ()
+    {
+        return view( "registerOrders" );
+    }
 
 }

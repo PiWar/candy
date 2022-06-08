@@ -188,7 +188,7 @@
         }
 
 
-        input, select {
+        input {
             @apply
             rounded-3xl
             py-1
@@ -202,6 +202,31 @@
                 @apply
                 border-black
 
+            }
+            &:disabled{
+                background: white;
+                color: black;
+            }
+        }
+        select {
+            @apply
+            rounded-3xl
+            py-1
+            px-4
+            shadow-inner
+            border-transparent
+            outline-none;
+            transition: all .3s ease;
+
+            &:focus {
+                @apply
+                border-black
+
+            }
+            &:disabled{
+                background: white;
+                color: black;
+                opacity: 1;
             }
         }
     }
